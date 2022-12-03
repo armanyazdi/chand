@@ -1,4 +1,4 @@
-# chand
+# chand چند؟
 
 [![PyPI](https://img.shields.io/pypi/v/chand?style=for-the-badge)](https://pypi.org/project/chand)
 [![PyPI - Python Version](https://img.shields.io/pypi/pyversions/chand?style=for-the-badge)](https://pypi.org/project/chand)
@@ -6,57 +6,89 @@
 
 A Python library for converting currencies to Iranian Rial and Toman.
 
-# Installation
+Note: This package shows the right real time price of Iranian Rial.
 
-Install from [PyPI](https://pypi.org/project/chand) with pip by typing in your favorite terminal 
-(This will also install `requests` and `bs4`):
+## Installation
+
+Install from [PyPI](https://pypi.org/project/chand) with pip by typing in your favorite terminal.
+
+This will also install `requests` and `bs4`.
 
 `pip install chand`
 
-# Usage
+## Usage
 
 Let's take a look at what an example test case would look like using `chand`.
 
-#### Exchange rates in Iranian Rial and Toman:
+### Exchange Rates in Rial and Toman:
 
 ```python
 import chand
 
-chand.toman('usd') # or chand.toman('USD')
-chand.rial('usd')  # or chand.rial('USD')
-```
-Example:
-```python
-import chand
-
-USDIRR = chand.rial('usd')
-EURIRR = chand.rial('eur')
-EURIRT = chand.toman('eur')
-
-print('1 USD equals:', USDIRR, 'Rials.')  # 1 USD equals: 349900 Rials
-print('1 EUR equals:', EURIRR, 'Rials.')  # 1 EUR equals: 368110 Rials
-print('1 EUR equals:', EURIRT, 'Tomans.') # 1 EUR equals: 36811 Tomans
+chand.toman('usd') # or 'USD'
+chand.toman('gbp') # or 'GBP'
+chand.rial('eur')  # or 'EUR'
+chand.rial('try')  # or 'TRY'
 ```
 
-#### Currency convertor:
+### Currency Converter:
 
 It can convert the currency of **136 codes (ISO 4217)**.
 
 ```python
 import chand
 
-chand.convert('eur', 'usd', 5000) # 5000 EUR to USD
-chand.convert('usd', 'try', 1000) # 1000 USD to TRY
+chand.convert('eur', 'usd', 500) # 500 Euro to US Dollar
+chand.convert('usd', 'eur', 500) # 500 US Dollar to Euro
+chand.convert('eur', 'try', 100) # 100 Euro to Turkish Lira
 ```
-Example:
+
+### Crypto Price in USD:
+
+It supports more than **3700 Crypto Currencies**.
+
 ```python
 import chand
 
-USDEUR = chand.convert('usd', 'eur', 1000)
-EURUSD = chand.convert('eur', 'usd', 1000)
-USDTRY = chand.convert('usd', 'try', 100)
+chand.crypto('bitcoin')  # or 'btc'
+chand.crypto('ethereum') # or 'eth'
+chand.crypto('cardano')  # or 'ada'
+```
 
-print('1000 USD equals:', USDEUR, 'EUR.') # 1000 USD equals: 960.20 EUR
-print('1000 EUR equals:', EURUSD, 'USD.') # 1000 EUR equals: 1040.90 USD
-print('100 USD equals:', USDTRY, 'TRY.')  # 100 USD equals: 1863.82 TRY
+### Crypto Converter:
+
+```python
+import chand
+
+chand.convert('btc', 'eth')     # Bitcoin to Ethereum
+chand.convert('eth', 'btc', 10) # 10 Ethereum to Bitcoin
+chand.convert('btc', 'eur', 5)  # 5 Bitcoin to Euro
+chand.convert('eth', 'gbp', 20) # 20 Bitcoin to Pound
+```
+
+### Color Formats Converter:
+
+HEX to RGB, CMYK, HSV/HSB
+
+```python
+import chand
+
+chand.convert('hex', 'rgb', 'ff4f5e')  # (255, 79, 94)
+chand.convert('hex', 'cmyk', 'ff4f5e') # (0%, 69%, 63%, 0%)
+chand.convert('hex', 'hsv', 'ff4f5e')  # (355°, 69%, 100%)
+```
+
+### BMI, BMR, RMR Calculator:
+
+```python
+import chand
+
+chand.bmi(180, 75) # or chand.bmi('180', '75')
+# Height(cm), Weight(kg)
+
+chand.bmr(168, 55, 22, 'female')
+# Height(cm), Weight(kg), Age, Sex
+
+chand.rmr(180, 75, 29, 'male')
+# Height(cm), Weight(kg), Age, Sex
 ```
