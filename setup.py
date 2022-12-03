@@ -5,7 +5,7 @@ with open('./README.md', 'r') as f:
 
 setup(
     name='chand',
-    version='0.0.1',
+    version='0.0.2',
     packages=['chand'],
     include_package_data=True,
     url='https://github.com/armanyazdi/chand',
@@ -14,8 +14,9 @@ setup(
     description='A Python library for converting currencies to Iranian Rial and Toman.',
     long_description=readme,
     long_description_content_type='text/markdown',
-    keywords='currency convertor, iranian rial, iranian toman',
+    keywords='currency converter, crypto converter, iranian rial, iranian toman',
     install_requires=['requests', 'bs4'],
+    python_requires='>= 3.6',
     classifiers=[
         'License :: OSI Approved :: MIT License',
         'Natural Language :: Persian',
